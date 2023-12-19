@@ -1,0 +1,135 @@
+.header{
+ background-color: rgb(241, 20, 20);
+ height: 20%;
+ border-radius: 25px;
+}
+.navbar{
+    background-color: black;
+    border-radius: 30px;
+    
+}
+.navbar ul{
+    overflow: auto;
+}
+.navbar li{
+    float:left;
+    list-style: none; 
+    margin: 13px 20px;
+    
+}
+.navbar li a{
+    padding: 3px 3px;
+    text-decoration: none;
+    color: white;
+}
+.navbar li a:hover{
+    color: red
+}
+.search{
+    float: right;
+    color: white;
+    padding: 12px 75px;
+}
+.navbar input{
+    border: 2px solid black;
+    border-radius: 14px;
+    padding: 3px 17px;
+    width: 129px;
+}
+table{
+ width: 100%;
+   
+     padding: 5px;
+     
+  margin-left: 70px;
+     background-image:url("tablebg.jpg");
+    
+}
+
+img{
+    border-radius: 10px;
+    
+}
+.menu{
+background-color: #14996a;
+}
+
+.order{
+text-align: center;
+margin:auto;
+padding: 10px;
+border : 2px solid;
+width: 55%;
+background-image:url("orderbg.jpg");
+background-repeat: no-repeat;
+
+}
+.form-group,input,select{
+    padding: 5px;
+ 
+   
+}
+.catalogue{
+    background-image:url("tablebg.jpg");
+    border: 2px solid black;
+    border-radius: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    margin-left:5px;
+    
+}
+
+body{
+    background-color:rgb(54, 60, 60);
+}
+
+h2{
+    font-size: 35px !important;
+    font-family: "Lucida Console";
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #e61a39;
+}
+
+
+.container:hover .overlay {
+    opacity: 0.85;
+   
+  }
+  
+  .container {
+    position: relative;
+    width: 259px;
+   
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #e21818;
+    border-radius: 10px;
+  }
+  
+  
+  .text {
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    
+  }
+  
+  .error{
+    color:red;
+}
