@@ -1,34 +1,39 @@
 package main
 
-import { 
+import (
 	"fmt"
-} 
+	"log"
+	"net/http"
+)
+
+func processHandler(w http.ResponseWriter, r *http.Request) {
+	if r.URL.Path != "/process" {
+		http.Error(w, "404 not found.", http.StatusNotFound)
+		return
+	}
+	if r.Method != http.MethodGet {
+		http.Error(w, "Method is not supported.", http.StatusMethodNotAllowed)
+		return
+	}
+	fmt.Fprintf(w, "Hello!")
+}
+
+func formHandler(w http.ResponseWriter, r *http.Request) {
+	if err := r.ParseForm(); err != nil {
+		fmt.Fprintf(w, "ParseForm() err: %v", err)
+		return
+	}
+	fmt.Fprintf(w, "POST request successful")
+
+}
 
 func main() {
-	var Name = "Go Cart"         //Variables
-	const Numberofitems = 50     //Constants
-	var Stockavailable uint = 50 // Variable with type
-	var userName string
-	var userAge int
-	var userAddress string
-	var numberofitemspurchased uint
-	fmt.Printf("Welcome to %v app\n", Name)
-	fmt.Println("Number of items Available:", Numberofitems)
-	fmt.Println("Each item stock is:", Stockavailable)
-	fmt.Println("Enter user details")
-	fmt.Println("Enter your name")
-	fmt.Scan(&userName)
-	fmt.Println("Enter your age")
-	fmt.Scan(&userAge)
-	fmt.Println("Enter your address")
-	fmt.Scan(&userAddress)
-	fmt.Scan()
-	fmt.Println("Enter number of items purchased")
-	fmt.Scan(&numberofitemspurchased)
-	Stockavailable = Numberofitems - numberofitemspurchased
-	fmt.Println("User Details")
-	fmt.Println("Name:", userName)
-	fmt.Println("Age:", userAge)
-	fmt.Println("Address:", userAddress)
-	fmt.Println("Number of items purchased:", Stockavailable)
+	fileServer := http.FileServer(http.Dir("./static"))
+	http.Handle("/", fileServer)
+	http.HandleFunc("/form", formHandler)
+	http.HandleFunc("/process", processHandler)
+	fmt.Println("Starting server at port 8080")
+	if err := http.ListenAndServe(":8080", nil); err != nil {
+		log.Fatal(err)
+	}
 }
