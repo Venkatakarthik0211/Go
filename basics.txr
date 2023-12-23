@@ -33,4 +33,41 @@ func main() {
 	fmt.Println("Age:", userAge)
 	fmt.Println("Address:", userAddress)
 	fmt.Println("Number of items purchased:", Stockavailable)
+
+
+	fmt.Printf("These are Arrays in Golang ") // Arrays are fixed length
+	var array [5]string
+	array[0] = "Hello"
+	array[1] = "World"
+	array[2] = "!"
+	array[3] = "I'm"
+	array[4] = "Golang"
+	fmt.Printf("THe whole array is %s", array)
+	fmt.Println()
+
+	fmt.Printf("These are Slices in Golang ") // Slices are like dynamic arrays
+	var slice []string
+	slice = append(slice, "Slice")
+	slice = append(slice, "is")
+	slice = append(slice, "dynamic")
+	slice = append(slice, "array")
+	fmt.Printf("The whole slice is %s", slice)
+	fmt.Println()
+
+	//Lets try some loops
+	fmt.Printf("These are Loops in Golang ")
+	fmt.Println()
+	for i := 0; i < len(array); i++ {
+		fmt.Printf("%s ", array[i])
+		fmt.Println()
+	}
+
+	//Lets try some loops using for each loop
+	fmt.Printf("These are Loops in Golang using for each")
+	fmt.Println()
+	for index, value := range slice {
+		fmt.Printf("Index is %d and value is %s", index, value)
+		fmt.Println()
+	}
+
 }
